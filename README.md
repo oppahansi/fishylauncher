@@ -82,3 +82,7 @@ Important graphics settings
 Graphics settings camparison
 ![Settings comparison](https://i.imgur.com/OszE4L4.jpg)
 * As you can see with Liquid Detail on Fair and Particle Density on High you reach the best contrast between the bobber/biting and the water/surrounding.
+
+## Final Words
+I am not using this bot myself, I made it for my friends. I do not recommend using it since it will put your account at risk.
+I do not provide any guarantees. Use it at your own risk.
