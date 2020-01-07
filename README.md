@@ -7,7 +7,7 @@
 
 NO AUTH KEY NEEDED ANYMORE, everything is free and everything related to auth keys has been removed.
 
-The bot does not interact with the World of Warcraft process in anyway. It should be invisible for the World of Warcraft Warden anticheat system. I do not have a 100% guarantee.
+The bot does not interact with the World of Warcraft process in anyway. It should be invisible for the World of Warcraft Warden anticheat system. I do not have a 100% guarantee. Your ingame character on the other hand can be seen and can be reported by other players if you sit in one place for whole days. So use your brain.
 
 It renames itself on every start. It reads only the pixel data on the screen and that is all it needs to work. The mouse and key input is simulated.
 
