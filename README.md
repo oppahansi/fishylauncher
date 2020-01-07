@@ -13,6 +13,15 @@ It renames itself on every start. It reads only the pixel data on the screen and
 
 There are many options available to adjust. You dont have to, but you can. The bot comes preconfigured.
 
+## Note
+The bot is seperated into 2 repositories.
+
+https://github.com/oppahansi/fishylauncher
+https://github.com/oppahansi/fishy
+
+To run the bot download the latest release in this repository, I zipped all you needed. Or build it yourself.
+Basically you need fishy.jar from the fishy repository and the fishylauncher.jar from this repository + the lib folder from the fishy repository to run the bot.
+
 ## Requirements
 * Java 8, the bot wont work with later versions, due to changes to JavaFX
 
