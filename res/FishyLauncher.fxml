@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#onKeyPressed" prefHeight="580.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FishyLauncherController">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" prefHeight="461.0" prefWidth="367.0" style="-fx-background-color: #1d5078; -fx-border-color: #000000;" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Separator layoutX="84.0" layoutY="32.0" prefWidth="200.0" />
+            <Label layoutX="163.0" layoutY="7.0" text="Hotkeys" textFill="WHITE" />
+            <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="45.0" text="Fishing Hotkey:" textFill="WHITE" />
+            <TextField fx:id="fishingHotKey" alignment="CENTER" disable="true" layoutX="141.0" layoutY="41.0" prefHeight="25.0" prefWidth="26.0" text="1" />
+            <Label alignment="CENTER_RIGHT" layoutX="210.0" layoutY="45.0" text="Buff Hotkey:" textFill="WHITE" />
+            <TextField fx:id="buffHotKey" alignment="CENTER" disable="true" layoutX="321.0" layoutY="41.0" prefHeight="25.0" prefWidth="26.0" text="2" />
+            <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="107.0" text="Sample Hotkey:" textFill="WHITE" />
+            <TextField fx:id="sampleHotKey" alignment="CENTER" disable="true" layoutX="141.0" layoutY="103.0" prefHeight="25.0" prefWidth="26.0" text="S" />
+            <TextField fx:id="bobberColorHotKey" alignment="CENTER" disable="true" layoutX="141.0" layoutY="72.0" prefHeight="25.0" prefWidth="26.0" text="D" />
+            <Label alignment="CENTER_RIGHT" layoutX="210.0" layoutY="76.0" text="Bite Color Hotkey:" textFill="WHITE" />
+            <TextField fx:id="biteColorHotKey" alignment="CENTER" disable="true" layoutX="321.0" layoutY="72.0" prefHeight="25.0" prefWidth="26.0" text="F" />
+            <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="76.0" text="Bobber Color Hotkey:" textFill="WHITE" />
+            <Separator layoutX="84.0" layoutY="171.0" prefWidth="200.0" />
+            <Label layoutX="147.0" layoutY="146.0" text="Fishing Plan" textFill="WHITE" />
+            <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="193.0" text="Fishing Cycle(ms):" textFill="WHITE" />
+            <TextField fx:id="fishingCycleField" alignment="CENTER" layoutX="125.0" layoutY="189.0" prefHeight="25.0" prefWidth="59.0" text="26000" />
+            <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="224.0" text="Search Delay(ms):" textFill="WHITE" />
+            <TextField fx:id="searchDelayField" alignment="CENTER" layoutX="125.0" layoutY="220.0" prefHeight="25.0" prefWidth="59.0" text="3000" />
+            <TextField fx:id="buffDurationField" alignment="CENTER" layoutX="317.0" layoutY="220.0" prefHeight="25.0" prefWidth="35.0" text="10" />
+            <Label alignment="CENTER_RIGHT" layoutX="210.0" layoutY="224.0" text="Buff Duration(min):" textFill="WHITE" />
+            <Label alignment="CENTER_RIGHT" layoutX="212.0" layoutY="255.0" text="Buff Count:" textFill="WHITE" />
+            <TextField fx:id="buffCountField" alignment="CENTER" layoutX="317.0" layoutY="251.0" prefHeight="25.0" prefWidth="35.0" text="10" />
+            <CheckBox fx:id="shiftLootCheckBox" layoutX="146.0" layoutY="255.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" />
+            <Label alignment="CENTER_RIGHT" layoutX="15.0" layoutY="255.0" text="Shift Loot?" textFill="WHITE" />
+            <Label alignment="CENTER_RIGHT" layoutX="210.0" layoutY="193.0" text="Use Buff?" textFill="WHITE" />
+            <CheckBox fx:id="useBuffCheckBox" layoutX="327.0" layoutY="189.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" />
+            <Separator layoutX="85.0" layoutY="314.0" prefWidth="200.0" />
+            <Label layoutX="163.0" layoutY="289.0" text="Exit Plan" textFill="WHITE" />
+            <TextField fx:id="timeField" layoutX="96.0" layoutY="334.0" prefHeight="25.0" prefWidth="59.0" text="13:37:42" />
+            <Label fx:id="timeFormatLabel" layoutX="158.0" layoutY="338.0" text="HH:mm:ss" textFill="WHITE" />
+            <TextField fx:id="hooksField" layoutX="111.0" layoutY="365.0" prefHeight="25.0" prefWidth="35.0" text="123" />
+            <TextField fx:id="castsField" layoutX="111.0" layoutY="396.0" prefHeight="25.0" prefWidth="35.0" text="123" />
+            <TextField fx:id="hoursField" layoutX="111.0" layoutY="427.0" prefHeight="25.0" prefWidth="35.0" text="123" />
+            <Label alignment="CENTER_RIGHT" layoutX="210.0" layoutY="107.0" text="Stop Fishing" textFill="WHITE" />
+            <RadioButton fx:id="timeCheckBox" layoutX="19.0" layoutY="338.0" mnemonicParsing="false" text="Time" textFill="WHITE">
+               <toggleGroup>
+                  <ToggleGroup fx:id="exitPlanGroup" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="hooksCheckBox" layoutX="19.0" layoutY="369.0" mnemonicParsing="false" text="Hooks" textFill="WHITE" toggleGroup="$exitPlanGroup" />
+            <RadioButton fx:id="castsCheckBox" layoutX="19.0" layoutY="400.0" mnemonicParsing="false" text="Casts" textFill="WHITE" toggleGroup="$exitPlanGroup" />
+            <RadioButton fx:id="hoursCheckBox" layoutX="19.0" layoutY="431.0" mnemonicParsing="false" text="Hours" textFill="WHITE" toggleGroup="$exitPlanGroup" />
+            <RadioButton fx:id="neverCheckBox" layoutX="167.0" layoutY="431.0" mnemonicParsing="false" selected="true" text="Never" textFill="WHITE" toggleGroup="$exitPlanGroup" />
+            <TextField fx:id="escHotkey" alignment="CENTER" disable="true" layoutX="317.0" layoutY="103.0" prefHeight="25.0" prefWidth="35.0" text="ESC" />
+            <RadioButton fx:id="buffsUsedUpCheckBox" layoutX="167.0" layoutY="400.0" mnemonicParsing="false" text="Buffs Used Up" textFill="WHITE" toggleGroup="$exitPlanGroup" />
+            <CheckBox fx:id="logoutCheckBox" layoutX="273.0" layoutY="361.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="75.0" selected="true" text="Logout" textFill="WHITE" />
+            <CheckBox fx:id="shutDownPcCheckBox" layoutX="252.0" layoutY="338.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" text="Shut down PC" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane layoutX="376.0" layoutY="14.0" prefHeight="461.0" prefWidth="410.0" style="-fx-border-color: #000000; -fx-background-color: #1d5078;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label layoutX="166.0" layoutY="6.0" text="Sample Image" textFill="WHITE" />
+            <Label layoutX="55.0" layoutY="344.0" text="Fishing Bobber Color" textFill="WHITE" />
+            <ImageView fx:id="bobberColorImage" fitHeight="150.0" fitWidth="190.0" layoutX="16.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+            </ImageView>
+            <Label layoutX="270.0" layoutY="344.0" text="Biting Color" textFill="WHITE" />
+            <ImageView fx:id="bitingColorImage" fitHeight="150.0" fitWidth="190.0" layoutX="206.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
+            </ImageView>
+            <Slider fx:id="bobberSensSlider" layoutX="41.0" layoutY="399.0" value="11.0" />
+            <Slider fx:id="bitingSensSlider" layoutX="232.0" layoutY="401.0" value="8.0" />
+            <TextField fx:id="bobberSensitivity" alignment="CENTER" layoutX="94.0" layoutY="422.0" prefHeight="25.0" prefWidth="35.0" text="0" />
+            <TextField fx:id="bitingSensitivity" alignment="CENTER" layoutX="284.0" layoutY="422.0" prefHeight="25.0" prefWidth="35.0" text="0" />
+            <Label layoutX="85.0" layoutY="383.0" text="Sensitivity" textFill="WHITE" />
+            <Label layoutX="276.0" layoutY="383.0" text="Sensitivity" textFill="WHITE" />
+            <ImageView fx:id="sampleImage" fitHeight="150.0" fitWidth="380.0" layoutX="14.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="478.0" prefHeight="92.0" prefWidth="780.0" style="-fx-background-color: #1d5078; -fx-border-color: #000000;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="478.0">
+         <children>
+            <Button fx:id="startButton" layoutX="136.0" layoutY="24.0" mnemonicParsing="false" onAction="#onFishyButtonPressed" prefHeight="44.0" prefWidth="114.0" text="Fishy" />
+            <Button fx:id="closeButton" layoutX="536.0" layoutY="29.0" mnemonicParsing="false" onAction="#onCloseButtonPressed" prefHeight="35.0" prefWidth="75.0" text="Close" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
