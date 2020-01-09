@@ -1,23 +1,13 @@
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.ImageView;
 
-import javax.crypto.Cipher;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
-import java.math.BigInteger;
-import java.net.Socket;
-import java.security.Key;
-import java.security.KeyFactory;
-import java.security.spec.RSAPrivateKeySpec;
-import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.prefs.Preferences;
 
 public class Utils {
     public static String FishyStartCommand = "java -jar fishy.jar";
-    public static String ATOMICTIME_SERVER = "129.6.15.30";
-    public static int ATOMICTIME_PORT = 13;
 
     static String getRandomString() {
         int leftLimitUC = 65;
@@ -98,70 +88,5 @@ public class Utils {
         prefs.putInt("bobberSensSlider", 11);
         prefs.putInt("bitingSensitivity", 8);
         prefs.putInt("bitingSensSlider", 8);
-    }
-
-    static Key readKeyFromFile() throws IOException {
-        Key key = null;
-        InputStream inputStream = Utils.class.getClassLoader().getResourceAsStream("fishy.key");
-        ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(inputStream));
-        try {
-            BigInteger modulus = (BigInteger) objectInputStream.readObject();
-            BigInteger exponent = (BigInteger) objectInputStream.readObject();
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-            key = keyFactory.generatePrivate(new RSAPrivateKeySpec(modulus, exponent));
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            objectInputStream.close();
-        }
-        return key;
-    }
-
-    public static String decrypt(byte[] cipherTextArray) throws Exception {
-        Key privateKey = readKeyFromFile();
-        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-512ANDMGF1PADDING");
-        cipher.init(Cipher.DECRYPT_MODE, privateKey);
-        byte[] decryptedTextArray = cipher.doFinal(cipherTextArray);
-        return new String(decryptedTextArray);
-    }
-
-    public final static LocalDateTime getAtomicTime() throws IOException {
-        BufferedReader in = null;
-        Socket conn = null;
-
-        try {
-            conn = new Socket(ATOMICTIME_SERVER, ATOMICTIME_PORT);
-            in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-            String atomicTime;
-            while (true) {
-                if ((atomicTime = in.readLine()).contains("*")) {
-                    break;
-                }
-            }
-
-            String[] fields = atomicTime.split(" ");
-
-            String[] date = fields[1].split("-");
-            int year = 2000 + Integer.parseInt(date[0]);
-            int month = Integer.parseInt(date[1]);
-            int day = Integer.parseInt(date[2]);
-
-            String[] time = fields[2].split(":");
-            int hour = Integer.parseInt(time[0]);
-            int minute = Integer.parseInt(time[1]);
-            int second = Integer.parseInt(time[2]);
-
-            return LocalDateTime.of(year, month, day, hour, minute, second);
-        } catch (IOException e) {
-            throw e;
-        } finally {
-            if (in != null) {
-                in.close();
-            }
-            if (conn != null) {
-                conn.close();
-            }
-        }
     }
 }
